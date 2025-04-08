@@ -14,7 +14,7 @@ const TeamStats = () => {
     manager: "Jürgen Klopp",
     founded: 1892,
     stadium: "Anfield",
-    capacity: 53,394,
+    capacity: 53394,
   };
 
   // Sample season stats
@@ -382,9 +382,9 @@ const TeamStats = () => {
                       <ul className="list-disc pl-5 space-y-2 mt-2">
                         <li>Quick vertical progression after winning possession</li>
                         <li>Immediate counter-press after losing the ball</li>
-                        <li>Rapid switches of play to exploit space</li>
-                        <li>Fullbacks quickly transitioning between attack and defense</li>
-                        <li>Midfielders providing balance during transitions</li>
+                        <li>Vertical passes to bypass opposition midfield</li>
+                        <li>Quick player movement to create passing options after winning possession</li>
+                        <li>Fullbacks quickly transitioning between attack and defense roles</li>
                       </ul>
                       
                       <h3 className="text-lg font-semibold mt-4">Key Metrics</h3>
