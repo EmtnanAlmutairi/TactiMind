@@ -1,108 +1,112 @@
+import { NavLink } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import { 
   BarChart3, 
-  Home, 
   Users, 
   Activity, 
-  Calendar, 
-  Settings, 
-  TrendingUp,
-  Zap,
-  Layers
+  Gauge, 
+  Radio, 
+  Home 
 } from "lucide-react";
 
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { Link, useLocation } from "react-router-dom";
-
-const items = [
-  {
-    title: "Dashboard",
-    url: "/",
-    icon: Home,
-  },
-  {
-    title: "Match Analysis",
-    url: "/match-analysis",
-    icon: Activity,
-  },
-  {
-    title: "Player Analysis",
-    url: "/player-analysis",
-    icon: Users,
-  },
-  {
-    title: "Team Stats",
-    url: "/team-stats",
-    icon: BarChart3,
-  },
-  {
-    title: "Fixtures",
-    url: "/fixtures",
-    icon: Calendar,
-  },
-  {
-    title: "Tactics",
-    url: "/tactics",
-    icon: Layers,
-  },
-  {
-    title: "Performance",
-    url: "/performance",
-    icon: TrendingUp,
-  },
-  {
-    title: "Live Analysis",
-    url: "/live",
-    icon: Zap,
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
-  },
-];
-
 export function AppSidebar() {
-  const location = useLocation();
-  
   return (
-    <Sidebar className="border-r bg-card">
-      <div className="flex h-14 items-center border-b px-4">
-        <Link to="/" className="flex items-center gap-2 font-semibold">
-          <Zap className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold">PlayStat</span>
-        </Link>
+    <aside className="fixed inset-y-0 left-0 z-20 hidden w-64 border-r bg-sidebar text-sidebar-foreground md:flex md:flex-col">
+      <div className="flex h-16 items-center border-b px-6">
+        <NavLink to="/" className="flex items-center gap-2 font-semibold">
+          <BarChart3 className="h-6 w-6" />
+          <span>Sports Analytics</span>
+        </NavLink>
       </div>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Analytics</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton 
-                    asChild
-                    className={location.pathname === item.url ? "bg-accent text-accent-foreground" : ""}
-                  >
-                    <Link to={item.url} className="flex items-center gap-3">
-                      <item.icon className="h-5 w-5" />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+      <div className="flex-1 overflow-auto py-2">
+        <nav className="grid items-start px-4 text-sm">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-sidebar-foreground",
+                isActive
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "transparent"
+              )
+            }
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </NavLink>
+          <NavLink
+            to="/match-analysis"
+            className={({ isActive }) =>
+              cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-sidebar-foreground",
+                isActive
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "transparent"
+              )
+            }
+          >
+            <BarChart3 className="h-4 w-4" />
+            Match Analysis
+          </NavLink>
+          <NavLink
+            to="/player-analysis"
+            className={({ isActive }) =>
+              cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-sidebar-foreground",
+                isActive
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "transparent"
+              )
+            }
+          >
+            <Users className="h-4 w-4" />
+            Player Analysis
+          </NavLink>
+          <NavLink
+            to="/team-stats"
+            className={({ isActive }) =>
+              cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-sidebar-foreground",
+                isActive
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "transparent"
+              )
+            }
+          >
+            <Activity className="h-4 w-4" />
+            Team Statistics
+          </NavLink>
+          <NavLink
+            to="/tactics"
+            className={({ isActive }) =>
+              cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-sidebar-foreground",
+                isActive
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "transparent"
+              )
+            }
+          >
+            <Gauge className="h-4 w-4" />
+            Tactical Analysis
+          </NavLink>
+          <NavLink
+            to="/live"
+            className={({ isActive }) =>
+              cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-sidebar-foreground",
+                isActive
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "transparent",
+                "text-red-500 font-medium"
+              )
+            }
+          >
+            <Radio className="h-4 w-4" />
+            Live Analysis
+          </NavLink>
+        </nav>
+      </div>
+    </aside>
   );
 }
