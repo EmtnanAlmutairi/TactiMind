@@ -1,6 +1,6 @@
 import { BarChart, BarChart3, Clock, Flag, Gauge, Target, Users } from "lucide-react";
 import { Header } from "@/components/layout/header";
-import { AppSidebar } from "@/components/layout/sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
 import { StatsCard } from "@/components/dashboard/stats-card";
 import { PitchVisualization } from "@/components/dashboard/pitch-visualization";
 import { MatchTimeline } from "@/components/dashboard/match-timeline";

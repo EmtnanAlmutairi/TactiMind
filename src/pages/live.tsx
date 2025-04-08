@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/layout/header";
-import { AppSidebar } from "@/components/layout/sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PitchVisualization } from "@/components/dashboard/pitch-visualization";
 import { MatchTimeline } from "@/components/dashboard/match-timeline";
@@ -19,39 +19,39 @@ const LiveAnalysis = () => {
 
   // Initial events
   const initialEvents = [
-    { id: 1, time: 12, type: "goal", team: "home", player: "M. Salah", description: "Goal from inside the box" },
-    { id: 2, time: 24, type: "card", team: "away", player: "Fred", description: "Yellow card for a late tackle" },
-    { id: 3, time: 37, type: "shot", team: "home", player: "R. Firmino", description: "Shot on target" },
-    { id: 4, time: 45, type: "save", team: "away", player: "De Gea", description: "Great save from close range" },
-    { id: 5, time: 52, type: "goal", team: "away", player: "C. Ronaldo", description: "Header from a corner" },
-    { id: 6, time: 67, type: "substitution", team: "home", player: "D. Jota", description: "Replaces R. Firmino" },
+    { id: 1, time: 12, type: "goal" as const, team: "home" as const, player: "M. Salah", description: "Goal from inside the box" },
+    { id: 2, time: 24, type: "card" as const, team: "away" as const, player: "Fred", description: "Yellow card for a late tackle" },
+    { id: 3, time: 37, type: "shot" as const, team: "home" as const, player: "R. Firmino", description: "Shot on target" },
+    { id: 4, time: 45, type: "save" as const, team: "away" as const, player: "De Gea", description: "Great save from close range" },
+    { id: 5, time: 52, type: "goal" as const, team: "away" as const, player: "C. Ronaldo", description: "Header from a corner" },
+    { id: 6, time: 67, type: "substitution" as const, team: "home" as const, player: "D. Jota", description: "Replaces R. Firmino" },
   ];
 
   // Initial player positions
   const initialPlayers = [
-    { id: 1, name: "J. Smith", position: "GK", x: 0.1, y: 0.5, team: "home", number: 1 },
-    { id: 2, name: "T. Arnold", position: "RB", x: 0.25, y: 0.2, team: "home", number: 2 },
-    { id: 3, name: "V. Dijk", position: "CB", x: 0.25, y: 0.4, team: "home", number: 4 },
-    { id: 4, name: "J. Gomez", position: "CB", x: 0.25, y: 0.6, team: "home", number: 5 },
-    { id: 5, name: "A. Robertson", position: "LB", x: 0.25, y: 0.8, team: "home", number: 3 },
-    { id: 6, name: "F. Keita", position: "CM", x: 0.4, y: 0.3, team: "home", number: 8 },
-    { id: 7, name: "J. Henderson", position: "CDM", x: 0.4, y: 0.5, team: "home", number: 6 },
-    { id: 8, name: "T. Alcantara", position: "CM", x: 0.4, y: 0.7, team: "home", number: 7 },
-    { id: 9, name: "M. Salah", position: "RW", x: 0.6, y: 0.3, team: "home", number: 11 },
-    { id: 10, name: "D. Jota", position: "CF", x: 0.6, y: 0.5, team: "home", number: 20 },
-    { id: 11, name: "S. Mane", position: "LW", x: 0.6, y: 0.7, team: "home", number: 10 },
+    { id: 1, name: "J. Smith", position: "GK", x: 0.1, y: 0.5, team: "home" as const, number: 1 },
+    { id: 2, name: "T. Arnold", position: "RB", x: 0.25, y: 0.2, team: "home" as const, number: 2 },
+    { id: 3, name: "V. Dijk", position: "CB", x: 0.25, y: 0.4, team: "home" as const, number: 4 },
+    { id: 4, name: "J. Gomez", position: "CB", x: 0.25, y: 0.6, team: "home" as const, number: 5 },
+    { id: 5, name: "A. Robertson", position: "LB", x: 0.25, y: 0.8, team: "home" as const, number: 3 },
+    { id: 6, name: "F. Keita", position: "CM", x: 0.4, y: 0.3, team: "home" as const, number: 8 },
+    { id: 7, name: "J. Henderson", position: "CDM", x: 0.4, y: 0.5, team: "home" as const, number: 6 },
+    { id: 8, name: "T. Alcantara", position: "CM", x: 0.4, y: 0.7, team: "home" as const, number: 7 },
+    { id: 9, name: "M. Salah", position: "RW", x: 0.6, y: 0.3, team: "home" as const, number: 11 },
+    { id: 10, name: "D. Jota", position: "CF", x: 0.6, y: 0.5, team: "home" as const, number: 20 },
+    { id: 11, name: "S. Mane", position: "LW", x: 0.6, y: 0.7, team: "home" as const, number: 10 },
     
-    { id: 12, name: "De Gea", position: "GK", x: 0.9, y: 0.5, team: "away", number: 1 },
-    { id: 13, name: "Wan-Bissaka", position: "RB", x: 0.75, y: 0.2, team: "away", number: 29 },
-    { id: 14, name: "Maguire", position: "CB", x: 0.75, y: 0.4, team: "away", number: 5 },
-    { id: 15, name: "Varane", position: "CB", x: 0.75, y: 0.6, team: "away", number: 19 },
-    { id: 16, name: "Shaw", position: "LB", x: 0.75, y: 0.8, team: "away", number: 23 },
-    { id: 17, name: "McTominay", position: "CM", x: 0.6, y: 0.3, team: "away", number: 39 },
-    { id: 18, name: "Fred", position: "CDM", x: 0.6, y: 0.5, team: "away", number: 17 },
-    { id: 19, name: "Fernandes", position: "CAM", x: 0.6, y: 0.7, team: "away", number: 18 },
-    { id: 20, name: "Sancho", position: "RW", x: 0.4, y: 0.3, team: "away", number: 25 },
-    { id: 21, name: "Ronaldo", position: "ST", x: 0.4, y: 0.5, team: "away", number: 7 },
-    { id: 22, name: "Rashford", position: "LW", x: 0.4, y: 0.7, team: "away", number: 10 },
+    { id: 12, name: "De Gea", position: "GK", x: 0.9, y: 0.5, team: "away" as const, number: 1 },
+    { id: 13, name: "Wan-Bissaka", position: "RB", x: 0.75, y: 0.2, team: "away" as const, number: 29 },
+    { id: 14, name: "Maguire", position: "CB", x: 0.75, y: 0.4, team: "away" as const, number: 5 },
+    { id: 15, name: "Varane", position: "CB", x: 0.75, y: 0.6, team: "away" as const, number: 19 },
+    { id: 16, name: "Shaw", position: "LB", x: 0.75, y: 0.8, team: "away" as const, number: 23 },
+    { id: 17, name: "McTominay", position: "CM", x: 0.6, y: 0.3, team: "away" as const, number: 39 },
+    { id: 18, name: "Fred", position: "CDM", x: 0.6, y: 0.5, team: "away" as const, number: 17 },
+    { id: 19, name: "Fernandes", position: "CAM", x: 0.6, y: 0.7, team: "away" as const, number: 18 },
+    { id: 20, name: "Sancho", position: "RW", x: 0.4, y: 0.3, team: "away" as const, number: 25 },
+    { id: 21, name: "Ronaldo", position: "ST", x: 0.4, y: 0.5, team: "away" as const, number: 7 },
+    { id: 22, name: "Rashford", position: "LW", x: 0.4, y: 0.7, team: "away" as const, number: 10 },
   ];
 
   // Comparison data
@@ -85,14 +85,14 @@ const LiveAnalysis = () => {
         if (matchTime === 78) {
           setEvents(prev => [
             ...prev,
-            { id: 7, time: 78, type: "foul", team: "away", player: "Maguire", description: "Foul near the penalty area" }
+            { id: 7, time: 78, type: "foul" as const, team: "away" as const, player: "Maguire", description: "Foul near the penalty area" }
           ]);
         }
         
         if (matchTime === 85) {
           setEvents(prev => [
             ...prev,
-            { id: 8, time: 85, type: "goal", team: "home", player: "S. Mane", description: "Counter-attack goal" }
+            { id: 8, time: 85, type: "goal" as const, team: "home" as const, player: "S. Mane", description: "Counter-attack goal" }
           ]);
         }
 

@@ -1,6 +1,6 @@
 import { Activity, BarChart3, Clock, Flag, Gauge, Target, Users } from "lucide-react";
 import { Header } from "@/components/layout/header";
-import { AppSidebar } from "@/components/layout/sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

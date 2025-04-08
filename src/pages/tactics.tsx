@@ -1,5 +1,5 @@
 import { Header } from "@/components/layout/header";
-import { AppSidebar } from "@/components/layout/sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AdvancedPitchAnalysis } from "@/components/dashboard/advanced-pitch-analysis";
