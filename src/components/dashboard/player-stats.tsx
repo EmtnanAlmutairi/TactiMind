@@ -62,7 +62,6 @@ export function PlayerStats({ player, stats, className }: PlayerStatsProps) {
                   "h-2",
                   stat.color ? `bg-${stat.color}-100` : ""
                 )}
-                indicatorClassName={stat.color ? `bg-${stat.color}-500` : ""}
               />
             </div>
           ))}
