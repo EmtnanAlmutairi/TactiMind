@@ -1,6 +1,6 @@
 import { Activity, BarChart3, Clock, Flag, Gauge, Target, Users } from "lucide-react";
 import { Header } from "@/components/layout/header";
-import { AppSidebar } from "@/components/layout/app-sidebar";
+import { MainSidebar } from "@/components/layout/main-sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -82,7 +82,7 @@ const PlayerAnalysis = () => {
 
   return (
     <div className="flex min-h-screen bg-background">
-      <AppSidebar />
+      <MainSidebar />
       <div className="flex flex-1 flex-col">
         <Header />
         <main className="flex-1 p-6">

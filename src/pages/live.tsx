@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/layout/header";
-import { AppSidebar } from "@/components/layout/app-sidebar";
+import { MainSidebar } from "@/components/layout/main-sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PitchVisualization } from "@/components/dashboard/pitch-visualization";
 import { MatchTimeline } from "@/components/dashboard/match-timeline";
@@ -125,7 +125,7 @@ const LiveAnalysis = () => {
 
   return (
     <div className="flex min-h-screen bg-background">
-      <AppSidebar />
+      <MainSidebar />
       <div className="flex flex-1 flex-col">
         <Header />
         <main className="flex-1 p-6">
