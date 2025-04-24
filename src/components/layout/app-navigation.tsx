@@ -12,7 +12,7 @@ import {
 export function AppNavigation() {
   return (
     <aside className="fixed inset-y-0 left-0 z-20 hidden w-64 border-r bg-sidebar text-sidebar-foreground md:flex md:flex-col">
-      <div className="flex h-16 items-center border-b px-6">
+      <div className="flex h-16 items-center border-b px-2 m-8">
         <NavLink to="/" className="flex items-center gap-2 font-semibold">
           <BarChart3 className="h-6 w-6" />
           <span>Sports Analytics</span>

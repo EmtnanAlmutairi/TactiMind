@@ -101,7 +101,7 @@ const Tactics = () => {
       <MainSidebar />
       <div className="flex flex-1 flex-col">
         <Header />
-        <main className="flex-1 p-6">
+        <main className="p-6 pl-72 space-y-6">
           <div className="mb-6">
             <h1 className="text-3xl font-bold tracking-tight">Tactical Analysis</h1>
             <p className="text-muted-foreground">

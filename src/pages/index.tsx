@@ -117,9 +117,9 @@ const Index = () => {
   return (
     <div className="flex min-h-screen bg-background">
       <MainSidebar />
-      <div className="flex flex-1 flex-col">
+      <div className="flex-1">
         <Header />
-        <main className="flex-1 p-6">
+        <main className="p-6 pl-72 space-y-6">
           <div className="mb-6">
             <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
             <p className="text-muted-foreground">
@@ -185,8 +185,8 @@ const Index = () => {
             />
           </div>
         </main>
+        </div>
       </div>
-    </div>
   );
 };
 

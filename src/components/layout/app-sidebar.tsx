@@ -107,6 +107,21 @@ export function AppSidebar() {
           </NavLink>
         </nav>
       </div>
+      {/* Adjust layout to ensure sidebar is on the left and content is on the right */}
+      <style jsx>{`
+        .app-layout {
+          display: flex;
+          flex-direction: row;
+        }
+        .sidebar {
+          flex-shrink: 0;
+          width: ${isOpen ? "16rem" : "5rem"};
+        }
+        .content {
+          flex-grow: 1;
+          margin-left: ${isOpen ? "16rem" : "5rem"};
+        }
+      `}</style>
     </aside>
   );
 }

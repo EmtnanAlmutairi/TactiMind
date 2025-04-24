@@ -128,7 +128,7 @@ const LiveAnalysis = () => {
       <MainSidebar />
       <div className="flex flex-1 flex-col">
         <Header />
-        <main className="flex-1 p-6">
+        <main className="p-6 pl-72 space-y-6">
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <div className="flex items-center gap-3">
