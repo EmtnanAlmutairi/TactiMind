@@ -1,5 +1,5 @@
-import { AppSidebar } from "./app-sidebar";
+import { NavigationSidebar } from "./navigation-sidebar";
 
 export function MainSidebar() {
-  return <AppSidebar />;
+  return <NavigationSidebar />;
 }
