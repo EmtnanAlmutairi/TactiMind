@@ -68,13 +68,13 @@ const LiveAnalysis = () => {
     setPlayers(initialPlayers);
 
     // Simulate live updates if isLive is true
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout | undefined;
     if (isLive) {
       interval = setInterval(() => {
         // Update match time
         setMatchTime(prevTime => {
           if (prevTime >= 90) {
-            clearInterval(interval);
+            if (interval) clearInterval(interval);
             setIsLive(false);
             return 90;
           }
