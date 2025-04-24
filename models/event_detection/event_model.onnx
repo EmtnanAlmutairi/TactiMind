@@ -1,0 +1,3 @@
+ONNX MODEL PLACEHOLDER
+This is a placeholder file for the Event Detection ONNX model.
+In a real implementation, this would be a binary ONNX model file for event detection in soccer matches.
